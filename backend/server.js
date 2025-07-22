@@ -3,15 +3,19 @@ import mongoose from 'mongoose'
 import 'dotenv/config'
 
 const app = express()
-app.use(express.json)
+app.use(express.json())
 
 const PORT = process.env.PORT
 const MONGO_URI = process.env.MONGO_URI
 
+// route links
+import taskRoutes from './routes/taskRoutes.js'
+app.use('/tasks', taskRoutes)
+
 async function start() {
     try {
         await mongoose.connect(MONGO_URI)
-        console.error('Connected to MongoDB..')
+        console.log('Connected to MongoDB..')
 
         app.listen(PORT, () => {
             console.log(`Server running on http://localhost:${PORT}`)  
