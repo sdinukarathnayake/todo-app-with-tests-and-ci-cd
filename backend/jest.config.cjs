@@ -1,4 +1,6 @@
 module.exports = {
     testEnvironment: 'node',
-    extensionsToTreatAsEsm: ['.js']
+    transform: {
+        '^.+\\.js$': 'babel-jest'
+    }
 }
