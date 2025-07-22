@@ -1,13 +1,15 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import TodoList from './pages/TodoList'
+import AddTask from './pages/AddTask'
 import './App.css'
 
-function App() {
+export default function App() {
     return (
-        <>
-            <h1 className='text-center text-blue-600'>
-                working..
-            </h1>
-        </>
+        <Router>
+            <Routes>
+                <Route path="/" element={<TodoList />} />
+                <Route path="/add" element={<AddTask />} />
+            </Routes>
+        </Router>
     )
 }
-
-export default App
